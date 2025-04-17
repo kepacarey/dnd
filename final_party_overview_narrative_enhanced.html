@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interactive Party Overview - Enhanced Spell Slots</title>
+  <style>
+    body {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    .character {
+      border: 1px solid #444;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 20px;
+      background-color: #2e2e2e;
+    }
+    h2 {
+      color: #f0c674;
+      margin-bottom: 0;
+    }
+    .alias {
+      color: #888;
+      font-style: italic;
+      margin-top: 0;
+    }
+    .section-title {
+      color: #56b6c2;
+      margin-top: 10px;
+    }
+    input, select {
+      background-color: #333;
+      color: #fff;
+      border: 1px solid #555;
+      padding: 3px;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+    label {
+      display: inline-block;
+      margin-top: 5px;
+    }
+    .checkbox-group label {
+      margin-right: 15px;
+    }
+    .quote {
+      font-style: italic;
+      color: #ccc;
+    }
+    .slots {
+      display: flex;
+      gap: 10px;
+      margin-top: 5px;
+    }
+    .slot {
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background-color: #3a5a90;
+      border: 2px solid #88aaff;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .slot.used {
+      background-color: #444;
+      border-color: #777;
+    }
+    .slot:hover {
+      box-shadow: 0 0 5px #88aaff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="character">
+  <h2>Cecilia Ever-Thawn</h2>
+  <p class="alias">Alias: Harper Vethrid</p>
+  <p class="quote">“I love a good insult, even when directed at me.”</p>
+
+  <p><strong>HP:</strong> <input type="number" id="cecilia-hp" value="12" min="0" max="12" style="width:60px;" /> / 12</p>
+  <p><strong>Temp HP:</strong> <input type="number" id="cecilia-temp" value="0" min="0" style="width:60px;" /></p>
+
+  <p class="section-title">Actions Used</p>
+  <div class="checkbox-group">
+    <label><input type="checkbox" id="cec-action"> Action</label>
+    <label><input type="checkbox" id="cec-bonus"> Bonus Action</label>
+    <label><input type="checkbox" id="cec-reaction"> Reaction</label>
+    <label><input type="checkbox" id="cec-move"> Movement</label>
+  </div>
+
+  <p class="section-title">Feature Usage</p>
+  <label><input type="checkbox" id="cec-secondwind"> Second Wind Used</label>
+
+  <p class="section-title">Appearance / Shape</p>
+  <input type="text" id="cec-form" placeholder="Current Disguise" style="width:200px;" />
+
+  <p class="section-title">Conditions</p>
+  <select id="cec-condition">
+    <option value="">None</option>
+    <option>Blinded</option>
+    <option>Charmed</option>
+    <option>Deafened</option>
+    <option>Frightened</option>
+    <option>Grappled</option>
+    <option>Incapacitated</option>
+    <option>Invisible</option>
+    <option>Paralyzed</option>
+    <option>Petrified</option>
+    <option>Poisoned</option>
+    <option>Prone</option>
+    <option>Restrained</option>
+    <option>Stunned</option>
+    <option>Unconscious</option>
+  </select>
+
+  <p class="section-title">Personality</p>
+  <ul>
+    <li><strong>Trait:</strong> I love a good insult, even when directed at me.</li>
+    <li><strong>Ideal:</strong> I like seeing the smiles on people’s faces as I perform.</li>
+    <li><strong>Bond:</strong> My instrument is my most treasured possession.</li>
+    <li><strong>Flaw:</strong> My sharp tongue often lands me in trouble.</li>
+  </ul>
+
+  <p class="section-title">Backstory</p>
+  <p>Cecilia, daughter of a Caederian noble and a changeling father, is a gifted performer with a passion for music and mimicry. Her talents and charm earn her favor in taverns and courts alike, though her sharp tongue often invites trouble. Her most prized possession is her guitar, which carries the memory of someone she loved deeply.</p>
+</div>
+
+<div class="character">
+
+  <h2>Sal Moongraze</h2>
+  <p class="alias">Devotee of Selûne</p>
+  <p class="quote">“Once I pick a goal, I become obsessed with it to the detriment of everything else in my life.”</p>
+
+  <p><strong>HP:</strong> <input type="number" id="sal-hp" value="11" min="0" max="11" style="width:60px;" /> / 11</p>
+  <p><strong>Temp HP:</strong> <input type="number" id="sal-temp" value="0" min="0" style="width:60px;" /></p>
+
+  <p class="section-title">Actions Used</p>
+  <div class="checkbox-group">
+    <label><input type="checkbox" id="sal-action"> Action</label>
+    <label><input type="checkbox" id="sal-bonus"> Bonus Action</label>
+    <label><input type="checkbox" id="sal-reaction"> Reaction</label>
+    <label><input type="checkbox" id="sal-move"> Movement</label>
+  </div>
+
+  <p class="section-title">Spell Slots (Level 1)</p>
+  <div class="slots">
+    <div class="slot" id="sal-slot1" title="Click to toggle use"></div>
+    <div class="slot" id="sal-slot2" title="Click to toggle use"></div>
+  </div>
+
+  <p class="section-title">Vigilant Blessing</p>
+  <input type="text" id="sal-bless" placeholder="Creature Name" style="width:200px;" />
+
+  <p class="section-title">Conditions</p>
+  <select id="sal-condition">
+    <option value="">None</option>
+    <option>Blinded</option>
+    <option>Charmed</option>
+    <option>Deafened</option>
+    <option>Frightened</option>
+    <option>Grappled</option>
+    <option>Incapacitated</option>
+    <option>Invisible</option>
+    <option>Paralyzed</option>
+    <option>Petrified</option>
+    <option>Poisoned</option>
+    <option>Prone</option>
+    <option>Restrained</option>
+    <option>Stunned</option>
+    <option>Unconscious</option>
+  
+  </select>
+
+  <p class="section-title">Personality</p>
+  <ul>
+    <li><strong>Trait:</strong> I’ve spent so long in the temple I have little practical experience dealing with people in the outside world.</li>
+    <li><strong>Ideal:</strong> I seek to prove myself worthy of my god’s favor.</li>
+    <li><strong>Bond:</strong> I owe my life to the priest who took me in when I was young.</li>
+    <li><strong>Flaw:</strong> Once I pick a goal, I become obsessed with it to the detriment of everything else in my life.</li>
+  </ul>
+
+  <p class="section-title">Backstory</p>
+  <p>Raised in the Church of Selûne after being abandoned as a child, Sal lived a sheltered life under the watch of the head priestess. Though dutiful, she always dreamed of the world beyond the temple walls. Her first chance at real adventure came when she was chosen to deliver a mysterious package that arrived at the temple's doorstep.</p>
+</div>
+
+<script>
+
+  document.querySelectorAll("input, select").forEach(el => {
+    const id = el.id;
+    const stored = localStorage.getItem(id);
+    if (stored !== null) {
+      if (el.type === "checkbox") el.checked = stored === "true";
+      else el.value = stored;
+    }
+
+    el.addEventListener("change", () => {
+      if (el.type === "checkbox") localStorage.setItem(id, el.checked);
+      else localStorage.setItem(id, el.value);
+    });
+  });
+
+  // Spell slot toggle logic
+  document.querySelectorAll(".slot").forEach(slot => {
+    const id = slot.id;
+    const stored = localStorage.getItem(id);
+    if (stored === "used") slot.classList.add("used");
+
+    slot.addEventListener("click", () => {
+      slot.classList.toggle("used");
+      localStorage.setItem(id, slot.classList.contains("used") ? "used" : "");
+    });
+  });
+</script>
+
+</body>
+</html>
