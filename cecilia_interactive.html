@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cecilia Ever-Thawn</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+            font-family: Georgia, serif;
+            padding: 20px;
+        }
+        .statblock {
+            border: 2px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: #2a2a2a;
+        }
+        h2 {
+            color: #ffd700;
+        }
+        label {
+            display: inline-block;
+            width: 130px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        input[type="number"], input[type="checkbox"] {
+            margin-bottom: 10px;
+            padding: 3px;
+        }
+        .feature {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="statblock">
+        <h2>Cecilia Ever-Thawn</h2>
+        <p><em>Level 1 Changeling Fighter (Entertainer)</em></p>
+        <hr>
+        <div>
+            <label for="hp">Current HP:</label>
+            <input type="number" id="hp" min="0" max="12">
+        </div>
+        <div>
+            <label for="secondWind">Second Wind Used:</label>
+            <input type="checkbox" id="secondWind">
+        </div>
+        <div>
+            <label for="spellSlots">Spell Slots (Fighter):</label>
+            <input type="number" id="spellSlots" min="0" max="0" disabled>
+        </div>
+        <button onclick="resetFields()">Reset</button>
+
+        <hr>
+        <p><strong>AC</strong> 14  <strong>Speed</strong> 30 ft.  <strong>Initiative</strong> +1  <strong>Hit Dice</strong> 1d10</p>
+        <p><strong>STR</strong> 11 (+0) <strong>DEX</strong> 12 (+1) <strong>CON</strong> 15 (+2)</p>
+        <p><strong>INT</strong> 9 (–1) <strong>WIS</strong> 12 (+1) <strong>CHA</strong> 15 (+2)</p>
+        <p><strong>Skills</strong>: Acrobatics +3, Deception +4, Insight +3, Performance +4, Perception +3, Persuasion +4</p>
+
+        <hr>
+        <p><strong>Longbow.</strong> +3 to hit, 1d8+1 piercing</p>
+        <p><strong>Longsword.</strong> +2 to hit, 1d8 slashing (versatile 1d10)</p>
+        <p><strong>Halberd.</strong> +2 to hit, 1d10 slashing. Reach.</p>
+
+        <hr>
+        <p><strong>Second Wind (1/rest):</strong> Bonus action to regain 1d10 + 1 HP.</p>
+        <p><strong>Shapechanger:</strong> Action to change appearance. Form lasts until changed or death.</p>
+        <p><strong>Unsettling Visage (1/rest):</strong> Reaction to impose disadvantage on attack against you. Reveals changeling nature.</p>
+    </div>
+
+    <script>
+        // Load from localStorage
+        window.onload = function() {
+            if (localStorage.getItem('cec_hp')) {
+                document.getElementById('hp').value = localStorage.getItem('cec_hp');
+            }
+            document.getElementById('secondWind').checked = localStorage.getItem('cec_sw') === 'true';
+        };
+
+        // Save changes
+        document.getElementById('hp').addEventListener('input', function() {
+            localStorage.setItem('cec_hp', this.value);
+        });
+
+        document.getElementById('secondWind').addEventListener('change', function() {
+            localStorage.setItem('cec_sw', this.checked);
+        });
+
+        // Reset function
+        function resetFields() {
+            localStorage.removeItem('cec_hp');
+            localStorage.removeItem('cec_sw');
+            document.getElementById('hp').value = '';
+            document.getElementById('secondWind').checked = false;
+        }
+    </script>
+</body>
+</html>
