@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cecilia Ever-Thawn</title>
+  <style>
+    body { background-color: #121212; color: #e0e0e0; font-family: sans-serif; padding: 1rem; }
+    h2 { color: #ffcb6b; }
+    label { display: block; margin-top: 0.5rem; }
+    input[type=checkbox] { margin-right: 0.5rem; }
+    textarea, input[type=number] {
+      width: 100%;
+      background: #1e1e1e;
+      color: #ccc;
+      border: 1px solid #333;
+      padding: 0.5rem;
+    }
+    .tracker { margin-bottom: 1.5rem; }
+  </style>
+</head>
+<body>
+  <h2>🎯 Cecilia Ever-Thawn – PC Tracker</h2>
+
+  <div class="tracker">
+    <h3>🎲 Combat Round</h3>
+    <label><input type="checkbox"> Action Used</label>
+    <label><input type="checkbox"> Bonus Action Used</label>
+    <label><input type="checkbox"> Reaction Used</label>
+    <label>Movement Remaining (ft): <input type="number" min="0" max="30" value="30"></label>
+  </div>
+
+  <div class="tracker">
+    <h3>🧰 Inventory Notes</h3>
+    <textarea rows="4">Longbow, Longsword, Halberd, Music Box Locket, Guitar, Explorer’s Pack...</textarea>
+  </div>
+
+  <div class="tracker">
+    <h3>📦 Temporary Effects / Active Abilities</h3>
+    <textarea rows="4">Second Wind available. No potions. Inspiration: 0</textarea>
+  </div>
+</body>
+</html>
