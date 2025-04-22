@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cecilia Ever-Thawn</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 1rem;
+    }
+    h2, h3 {
+      color: #ffcb6b;
+    }
+    details {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    label, p {
+      margin: 0.4rem 0;
+    }
+    input, textarea {
+      background: #2b2b2b;
+      color: #e0e0e0;
+      border: 1px solid #444;
+      padding: 0.3rem;
+    }
+    input[type='range'] {
+      width: 100%;
+    }
+    .field {
+      margin-bottom: 0.5rem;
+    }
+    .horizontal-checks {
+      display: flex;
+      gap: 1rem;
+      margin: 0.5rem 0;
+    }
+    a {
+      color: #82aaff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<h2>🧝‍♀️ Cecilia Ever-Thawn</h2>
+
+<details open>
+  <summary>🎯 Basic Info</summary>
+  <p><strong>Race:</strong> Changeling</p>
+  <p><strong>Class & Level:</strong> Fighter 1</p>
+  <p><strong>AC:</strong> 14</p>
+  <p><strong>Max HP:</strong> 12</p>
+</details>
+
+<details>
+  <summary>⚔️ Combat Tracker</summary>
+  <div class="horizontal-checks">
+    <label><input type="checkbox"> Action</label>
+    <label><input type="checkbox"> Bonus Action</label>
+    <label><input type="checkbox"> Reaction</label>
+  </div>
+  <label>Movement Remaining (ft): <span id="moveVal">30</span></label>
+  <input type="range" min="0" max="30" value="30" oninput="moveVal.innerText = this.value">
+  <label>Status Effects / Conditions:</label>
+  <textarea rows="2" placeholder="E.g., Grappled, Invisible, Poisoned..."></textarea>
+</details>
+
+<details>
+  <summary>🎒 Inventory & Equipment</summary>
+  <textarea rows="4">Longbow, Longsword, Halberd, Guitar, Music Box Locket, Explorer's Pack, Fine Clothes</textarea>
+</details>
+
+<details>
+  <summary>🧠 Abilities & Traits</summary>
+  <ul>
+    <li>🎭 <strong>Shapechanger</strong> – Change appearance at will</li>
+    <li>😨 <strong>Unsettling Visage</strong> – Impose disadvantage as a reaction</li>
+    <li>💨 <strong>Second Wind</strong> – 1d10+1 HP once per short rest</li>
+  </ul>
+</details>
+
+<details>
+  <summary>📄 Notes</summary>
+  <textarea rows="4">Track inspiration, temp effects, or conditions here...</textarea>
+</details>
+
+</body>
+</html>
